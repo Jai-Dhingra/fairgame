@@ -220,7 +220,7 @@ chrome_options.binary_location="C:\Users\%USERNAME%\AppData\Local\Google\Chrome\
 You are not running the proper version of Chrome this requires. As of this update, the current version is Chrome 87. Check your version by going to ```chrome://version/``` in your browser. We are going to be targeting the current stable build of chrome. If you are behind, please update, if you are on a beta or canary branch, you'll have to build your own version of chromedriver-py.
 
 ## Linux-Setup
-Unidentified-Warlock, and Juzdarius made a guide. Please use the tech-support channel on the discord if you need any help, or have any questions.
+Unidentified-Warlock and Juzdarius made a guide. Please use the tech-support channel on the discord if you need any help, or have any questions.
 https://docs.google.com/document/d/1VUxXhATZ8sZOJxdh3AIY6OGqwLRmrAcPikKZAwphIE8/edit?usp=sharing
 
  Follow [Usage](#Usage) to configure the bot as needed.
