@@ -1,6 +1,6 @@
 # Fairgame
 
-[Installation](#Installation) | [Usage](#Usage) | [Discord](https://discord.gg/qDY2QBtAW6)  | [Troubleshooting](#Troubleshooting) | [Linux-Setup(#Linux-Setup)
+[Installation](#Installation) | [Usage](#Usage) | [Discord](https://discord.gg/qDY2QBtAW6)  | [Troubleshooting](#Troubleshooting) | [Linux-Setup](#Linux-Setup)
 
 ## Why???
 
