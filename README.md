@@ -1,14 +1,14 @@
 # Fairgame
 
-[Installation](#Installation) | [Usage](#Usage) | [Discord](https://discord.gg/qDY2QBtAW6)  | [Troubleshooting](#Troubleshooting)
+[Installation](#Installation) | [Usage](#Usage) | [Discord](https://discord.gg/qDY2QBtAW6)  | [Troubleshooting](#Troubleshooting) | [Linux-Setup](#Linux-Setup)
 
 ## Why???
 
 We built this in response to the severe tech scalping situation that's happening right now. Almost every tech product that's coming
 out right now is being instantly brought out by scalping groups and then resold at at insane prices. $699 GPUs are being listed
 for $1700 on eBay, and these scalpers are buying 40 carts while normal consumers can't get a single one. Preorders for the PS5 are
-being resold for nearly $1000. Our take on this is that if we release a bot that anyone can use, for free, then the number of items 
-that scalpers can buy goes down and normal consumers can buy items for MSRP. 
+being resold for nearly $1000. Our take on this is that if we release a bot that anyone can use, for free, then the number of items
+that scalpers can buy goes down and normal consumers can buy items for MSRP.
 
 **If everyone is botting, then no one is botting.**
 
@@ -20,14 +20,14 @@ Read through this document and the cheat sheet linked in the next sections. See 
 
 Easy_XII has created a great cheat sheet for getting started, [please follow this guide](https://docs.google.com/document/d/1grN282tPodM9N57bPq4bbNyKZC01t_4A-sLpzzu_7lM/).
 
-This project uses [Pipenv](https://pypi.org/project/pipenv/) to manage dependencies. Hop in my [Discord](https://discord.gg/qDY2QBtAW6) if you have ideas, need help or just want to tell us about how you got your new toys. 
+This project uses [Pipenv](https://pypi.org/project/pipenv/) to manage dependencies. Hop in my [Discord](https://discord.gg/qDY2QBtAW6) if you have ideas, need help or just want to tell us about how you got your new toys.
 
 To get started you'll first need to clone this repository. If you are unfamiliar with Git, follow the [guide on how to do that on our Wiki](https://github.com/Hari-Nagarajan/fairgame/wiki/How-to-use-GitHub-Desktop-App). You *can* use the "Download Zip" button on the GitHub repository's homepage but this makes receieving updates more difficult. If you can get setup with the GitHub Desktop app, updating to the latest version of the bot takes 1 click.
 
 !!! YOU WILL NEED TO USE THE 3.8 BRANCH OF PYTHON, 3.9.0 BREAKS DEPENDENCIES !!!
 ```
 pip install pipenv
-pipenv shell 
+pipenv shell
 pipenv install
 ```
 
@@ -55,7 +55,7 @@ Commands:
 
 ## Usage
 
-### Amazon 
+### Amazon
 
 **Amazon flags**
 ```
@@ -82,8 +82,8 @@ Make a copy of `amazon_config.template_json` and rename to `amazon_config.json`:
 }
 ```
 * `asin_groups` indicates the number of ASIN groups you want to use.
-* `asin_list_x` list of ASINs for products you want to purchase. You must locate these (see Discord or lookup the ASIN on product pages). 
-    * The first time an item from list "x" is in stock and under its associated reserve, it will purchase it. 
+* `asin_list_x` list of ASINs for products you want to purchase. You must locate these (see Discord or lookup the ASIN on product pages).
+    * The first time an item from list "x" is in stock and under its associated reserve, it will purchase it.
     * If the purchase is successful, the bot will not buy anything else from list "x".
     * Use sequential numbers for x, starting from 1. x can be any integer from 1 to 18,446,744,073,709,551,616
 * `reserve_x` is the most amount you want to spend for a single item (i.e., ASIN) in `asin_list_x`. Does not include tax. If --checkshipping flag is active, this includes shipping listed on offer page.
@@ -164,10 +164,10 @@ python app.py bestbuy --sku 6429440
 
 ### Notifications
 Notifications are now handled by apprise. Apprise lets you send notifications to a large number of supported notification services.
-Check https://github.com/caronc/apprise/wiki for a detailed list. 
+Check https://github.com/caronc/apprise/wiki for a detailed list.
 
 To enable Apprise notifications, make a copy of `apprise_config.template_json` in the `config` directory and name it `apprise_config.json`.
-Then add apprise formatted urls for your desired notification services as json blobs. 
+Then add apprise formatted urls for your desired notification services as json blobs.
 
 Apprise Example blobs:
 ```json
@@ -207,7 +207,7 @@ Once you have setup your `apprise_config.json ` you can test it by running `pyth
 
 I suggest joining the #tech-support channel in [Discord](https://discord.gg/qDY2QBtAW6) for personal assistance if these common fixes don't help.
 
-**Error: ```selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary```** 
+**Error: ```selenium.common.exceptions.WebDriverException: Message: unknown error: cannot find Chrome binary```**
 The issue is that chrome is not installed in the expected location. See [Selenium Wiki](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver#requirements) and the section on [overriding the Chrome binary location .](https://sites.google.com/a/chromium.org/chromedriver/capabilities#TOC-Using-a-Chrome-executable-in-a-non-standard-location)
 
 The easy fix for this is to add an option where selenium is used (`selenium_utils.py``)
@@ -219,40 +219,15 @@ chrome_options.binary_location="C:\Users\%USERNAME%\AppData\Local\Google\Chrome\
 
 You are not running the proper version of Chrome this requires. As of this update, the current version is Chrome 87. Check your version by going to ```chrome://version/``` in your browser. We are going to be targeting the current stable build of chrome. If you are behind, please update, if you are on a beta or canary branch, you'll have to build your own version of chromedriver-py.
 
-## Raspberry-Pi-Setup
-Maybe this works?
+## Linux-Setup
+Unidentified-Warlock and Juzdarius made a guide. Please use the tech-support channel on the discord if you need any help, or have any questions.
+https://docs.google.com/document/d/1VUxXhATZ8sZOJxdh3AIY6OGqwLRmrAcPikKZAwphIE8/edit?usp=sharing
 
-1. Prereqs and Setup
-```shell
-sudo apt update
-sudo apt upgrade
-sudo apt install chromium-chromedriver
-git clone https://github.com/Hari-Nagarajan/fairgame
-cd fairgame/
-pip3 install pipenv
-export PATH=$PATH:/home/<YOURUSERNAME>/.local/bin
-pipenv shell 
-pipenv install
-```
-2. Leave this Terminal window open.
-
-3. Open the following file in a text editor: 
-```
-/home/<YOURUSERNAME>/.local/share/virtualenvs/fairgame-<RANDOMCHARS>/lib/python3.7/site-packages/selenium/webdriver/common/service.py
-```
-4. Edit line 38 from `self.path = executable` to `self.path = "chromedriver"`, then save and close the file.
-
-
-5. Back in Terminal...
-```shell
-python app.py
-```
-
-6. Follow [Usage](#Usage) to configure the bot as needed.
+ Follow [Usage](#Usage) to configure the bot as needed.
 
 ## Frequently Asked Questions
 
-### 1. Can I run multiple instances of the bot? 
+### 1. Can I run multiple instances of the bot?
 Yes. For example you can run one instance to check stock on Best Buy and a separate instance to check stock on Amazon. Bear in mind that if you do this you may end up with multiple purchases going through at the same time.
 
 ### 2. Does Fairgame automatically bypass CAPTCHA's on the store sites?
